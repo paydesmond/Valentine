@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-logo {
@@ -34,5 +36,196 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+.ask-her-out{
+  font-size: 20px;
+  background: #dbdbdb;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.valentine-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url('./assests/valentine2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  flex-direction: column;
+ 
+}
+
+.valentine-ask-out{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 5px solid #e4e4e4;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
+  background: #e4e4e4;
+  width: 300px;
+}
+
+.name{
+  background:#3e3e3e;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  outline: none;
+}
+
+.email{
+  background:#3e3e3e;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  outline: none
+
+}
+
+.admirer{
+  background:#3e3e3e;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  outline: none;
+}
+
+.email::placeholder{
+  color: #fff;
+  font-weight: 500;
+}
+
+
+.name::placeholder{
+  color: #fff;
+  font-weight: 500;
+}
+
+.admirer::placeholder{
+  color: #fff;
+  font-weight: 500;
+}
+
+.name:hover{
+  color: #fff;
+}
+
+.email:hover{
+  color: #fff;
+}
+
+
+.admirer:hover{
+  color: #fff;
+}
+
+
+
+.btn{
+  background: #C01926;
+  padding: 6px;
+  border-radius: 10px;
+  width: 100px;
+  color: #fff;
+}
+
+.toast{
+  background: red !important;
+}
+
+@media screen and (max-width:50em) {
+  .valentine-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url('./assests/valentine2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    flex-direction: column;
+   
+  }
+
+  .name{
+    background:#3e3e3e;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none;
+  }
+  
+  .email{
+    background:#3e3e3e;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none
+  
+  }
+  
+  .admirer{
+    background:#3e3e3e;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none;
+  }
+}
+
+@media screen and (max-width:50em) {
+  .valentine-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url('./assests/valentine2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    flex-direction: column;
+   
+  }
+
+  .name{
+    background:#3e3e3e;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none;
+  }
+  
+  .email{
+    background:#3e3e3e;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none
+  
+  }
+  
+  .admirer{
+    background:#3e3e3e;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none;
   }
 }

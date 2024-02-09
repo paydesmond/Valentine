@@ -1,59 +1,95 @@
-import React,{useState,useEffect} from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
+import { sendData } from '../Hooks/Hooks';
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+
+
+
 export default function Valentine() {
-  const [name,setName]=useState('')
-  const [email,setEmail]=useState('')
-  const [admirer,setAdmirer]=useState('')
-//   useEffect(()=>{
-//     sendData()
-// },[])
-  const BASE_URL='http://localhost:8000/send-link/'
-  const sendData= async ()=>{
-    try{
-      const res=await axios.post(BASE_URL,{
-        first_name:name,
-        admirer:admirer,
-        email:email
-      })
-      console.log(res.data)
-    }
-    catch (E){
-        console.log(E)
-    }
-  
-}
+  const [userdetails, setUserDetails] = useState({
+    name: '',
+    email: '',
+    admirer: ''
+  });
+
+  const handleSubmit = async (userdetails) => {
+    await sendData(userdetails);
+  };
+
+  const handleChange = (e) => {
+    setUserDetails({
+      ...userdetails,
+      [e.target.name]: e.target.value 
+    });
+  };
+
+  const notify= ()=>{
+    toast.error('❤️ Happy valentine!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      });
+  }
 
   return (
-    <div style={{display:'flex',flexDirection:'column',flex:1}} 
-    className='bg-pink-400  items-center justify-center'
-    >
-        <h1 className='text-3xl font-bold text-white'>#Ask her out</h1>
-        <div>
+    <div className='valentine-container'>
+      <h1 className='ask-her-out'>ASK HIM/HER OUT</h1>
 
-        <input placeholder='provide first name'
-          value={name}
-          onChange={(e)=>{setName(e.target.value)}}>  
-          </input>
+      <div className='valentine-ask-out'>
+        <input
+          placeholder='provide first name'
+          className='name'
+          value={userdetails.name}
+          name='name'
+          onChange={handleChange}
+        />
 
-          <br></br>
+        <input
+          placeholder='provide email'
+          className='email'
+          name='email'
+          value={userdetails.email}
+          onChange={handleChange}
+        />
 
-          <input placeholder='provide email'
-          className='mt-5'
-          value={email}
-          onChange={(e)=>{setEmail(e.target.value)}}>  
-          </input>
+        <input
+          placeholder="provide admirer's name"
+          value={userdetails.admirer}
+          className='admirer'
+          name='admirer'
+          onChange={handleChange}
+        />
 
-          <br></br>
 
-          <input placeholder="provide admirer's name"
-          value={admirer}
-          onChange={(e)=>{setAdmirer(e.target.value)}}>  
-          </input>
-          <button className='bg-purple-500 rounded-xl p-1 text-white border-white border'
-            onClick={()=>{sendData()}}>
-            Submit
-          </button>
-        </div>
+        <button className='btn' onClick={() => {
+          handleSubmit(userdetails)
+          notify()
+        }
+          }>
+          SUBMIT
+        </button>
+      </div>
+  <div className='toast'>
+    <ToastContainer
+     position="top-center"
+     autoClose={5000}
+     hideProgressBar={false}
+     newestOnTop={false}
+     closeOnClick
+     rtl={false}
+     pauseOnFocusLoss
+     draggable
+     pauseOnHover
+     theme="light"
+     transition='Bounce'
+     />
     </div>
-  )
+    </div>
+  );
 }
