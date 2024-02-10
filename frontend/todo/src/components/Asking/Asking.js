@@ -4,19 +4,32 @@ import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {useParams} from 'react-router-dom';
 
 function Asking() {
   const [answer,setAnswer] = useState('');
+  const params = useParams()
+  console.log(params)
+  const [userDetails,setUserDetails] = useState({
+    id:'',
+    user:'',
+    speak_from_heart:'',
+    admirer:''
+  })
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const navigate = useNavigate()
 
   const fetchAdmirerData = async()=>{
-      const {data} = await axios.get('')
+      const {data} = await axios.get(`http://localhost:8000/message/78187`)
       console.log(data)
   }
 
+  const postResult = async(answer)=>{
+     await axios.post(`http://localhost:8000/message/78187`,{answer})
+  }
+
   useEffect(()=>{
-    
+    fetchAdmirerData()
   })
 
   const handleDisableButton = () => {
@@ -96,9 +109,9 @@ function Asking() {
       
        <img className='image' width='200px' height='200px' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-_G35VUQ2CYarDn1li3-w25wJHqH6P-07xb-Wt2jXwY8tV_3ybTfOfRrOA6kPt2jNrQ&usqp=CAU' alt='image'/>       <div className='ask-name'>name</div>
 
-      {/* <div className='random-love-quote'>
-        Something here
-      </div> */}
+      <div className='random-love-quote'>
+        <div>{}</div>
+      </div>
       <div className='quote'>
         <div className=''>Roses are Red,Violets are blue,love is in the sky</div>
         <div className=''>Would You be my valentine?💕</div>

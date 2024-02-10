@@ -1,36 +1,74 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
 import { sendData } from '../../Hooks/Hooks';
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 
+const BASE_URL='http://localhost:8000/send-link/'
 
 
 export default function Valentine() {
+  const [userData,setUserData]=useState({
+    image:'',
+    admirerLink:''
+  })
+
+
+
+
   const [userdetails, setUserDetails] = useState({
-    name: '',
+    first_name: '',
     email: '',
     admirer: '',
-    imageFile:''
+    image:'',
+    speak_from_heart:''
   });
 
   const handleSubmit = async (userdetails) => {
-    notify()
-    setUserDetails({
-      ...userdetails,
-      name: '',
-      email: '',
-      admirer: '',
-      imageFile:''
-    })
-    await sendData(userdetails);
+    try{
+      const {data} = await axios.post(BASE_URL, userdetails)
+      console.log(data)
+      const {image,link} = data
+      setUserData({
+        ...userData,
+        image,
+        admirerLink:link
+      })
+
+      if(data){
+        notify()
+        setUserDetails({
+          ...userdetails,
+          first_name: '',
+          email: '',
+          admirer: '',
+          image:'',
+          speak_from_heart:''
+        })
+      }
+      setUserDetails({
+        ...userdetails,
+        first_name: '',
+        email: '',
+        admirer: '',
+        image:'',
+        speak_from_heart:''
+      })
+    }
+    catch (e){
+      console.log(e)
+    }
   };
 
   const handleChange = (e) => {
+    
     setUserDetails({
       ...userdetails,
       [e.target.name]: e.target.value 
     });
   };
+
+ 
 
   const notify= ()=>{
     toast.success('❤️ Happy valentine!', {
@@ -54,8 +92,8 @@ export default function Valentine() {
         <input
           placeholder='provide first name'
           className='name'
-          value={userdetails.name}
-          name='name'
+          value={userdetails.first_name}
+          name='first_name'
           onChange={handleChange}
         />
 
@@ -75,20 +113,28 @@ export default function Valentine() {
           onChange={handleChange}
         />
 
+          <input
+          placeholder="provide message"
+          value={userdetails.speak_from_heart}
+          className='admirer'
+          name='speak_from_heart'
+          onChange={handleChange}
+        />
+
         <label className='image-label' htmlFor='image'>Add your image here</label>
          <input 
          type="file" 
-         name="imageFile" 
+         name="image" 
          accept="image/*"
          className='image-input'
-         value={userdetails.imageFile}
+         value={userdetails.image}
          onChange={handleChange}
          />
 
 
 
         <button className='btn' onClick={() => {
-          handleSubmit(userdetails)
+           handleSubmit(userdetails)
         }
           }>
           SUBMIT
@@ -110,9 +156,14 @@ export default function Valentine() {
      />
     </div>
     {
-      <div className='url-link'>
-        <div className='link'>Desmond</div>
-      </div>}
+      userData&&( 
+        <div className='url-link'>
+        <div className='link'>{userData.admirerLink}</div>
+      </div>
+      )
+      
+      }    
+
     </div>
   );
 }

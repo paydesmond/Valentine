@@ -17,7 +17,7 @@ function App() {
 
             <Route path='asking' element={<AskingLayout/>}>
                <Route  path=':id' element={<Asking/>}/>
-            </Route>
+            </Route> 
                 
        </Route>
     )
