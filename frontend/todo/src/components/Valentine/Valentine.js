@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sendData } from '../Hooks/Hooks';
+import { sendData } from '../../Hooks/Hooks';
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 
@@ -9,10 +9,19 @@ export default function Valentine() {
   const [userdetails, setUserDetails] = useState({
     name: '',
     email: '',
-    admirer: ''
+    admirer: '',
+    imageFile:''
   });
 
   const handleSubmit = async (userdetails) => {
+    notify()
+    setUserDetails({
+      ...userdetails,
+      name: '',
+      email: '',
+      admirer: '',
+      imageFile:''
+    })
     await sendData(userdetails);
   };
 
@@ -24,7 +33,7 @@ export default function Valentine() {
   };
 
   const notify= ()=>{
-    toast.error('❤️ Happy valentine!', {
+    toast.success('❤️ Happy valentine!', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -66,10 +75,20 @@ export default function Valentine() {
           onChange={handleChange}
         />
 
+        <label className='image-label' htmlFor='image'>Add your image here</label>
+         <input 
+         type="file" 
+         name="imageFile" 
+         accept="image/*"
+         className='image-input'
+         value={userdetails.imageFile}
+         onChange={handleChange}
+         />
+
+
 
         <button className='btn' onClick={() => {
           handleSubmit(userdetails)
-          notify()
         }
           }>
           SUBMIT
@@ -90,6 +109,10 @@ export default function Valentine() {
      transition='Bounce'
      />
     </div>
+    {
+      <div className='url-link'>
+        <div className='link'>Desmond</div>
+      </div>}
     </div>
   );
 }
