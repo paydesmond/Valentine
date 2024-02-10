@@ -1,8 +1,7 @@
 import React, { useState,useEffect} from 'react';
-import { sendData } from '../../Hooks/Hooks';
 import 'react-toastify/dist/ReactToastify.css';
-import { Bounce, ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import {notifyHappyValentine,valentineToast,notifyNo,toastBucket} from '../Success/Success'
 
 const BASE_URL='http://localhost:8000/send-link/'
 
@@ -12,8 +11,6 @@ export default function Valentine() {
     image:'',
     admirerLink:''
   })
-
-
 
 
   const [userdetails, setUserDetails] = useState({
@@ -26,26 +23,45 @@ export default function Valentine() {
 
   const handleSubmit = async (userdetails) => {
     try{
-      const {data} = await axios.post(BASE_URL, userdetails)
-      console.log(data)
-      const {image,link} = data
-      setUserData({
-        ...userData,
-        image,
-        admirerLink:link
-      })
+      console.log(userdetails)
+      const {first_name,email,admirer,image,speak_from_heart} = userdetails
 
-      if(data){
-        notify()
-        setUserDetails({
-          ...userdetails,
-          first_name: '',
-          email: '',
-          admirer: '',
-          image:'',
-          speak_from_heart:''
-        })
+      if(!first_name || !email || !admirer || !image || !speak_from_heart){
+        notifyNo('Please provide all details')
+      } else{
+        
+        const {data:{image,link}} = await axios.post(BASE_URL, userdetails)
+
+        if(image || link){
+          setUserData({
+            ...userData,
+            image,
+            admirerLink:link
+          })
+  
+          notifyHappyValentine('❤️ Happy valentine!')
+  
+          setUserDetails({
+            ...userdetails,
+            first_name: '',
+            email: '',
+            admirer: '',
+            image:'',
+            speak_from_heart:''
+          })
+        }
       }
+         setUserDetails({
+           ...userdetails,
+           first_name: '',
+           email: '',
+           admirer: '',
+           image:'',
+           speak_from_heart:''
+         })
+    }
+    catch (error){
+      notifyNo('Something went please try again')
       setUserDetails({
         ...userdetails,
         first_name: '',
@@ -55,35 +71,16 @@ export default function Valentine() {
         speak_from_heart:''
       })
     }
-    catch (e){
-      console.log(e)
-    }
   };
 
   const handleChange = (e) => {
-    
-    setUserDetails({
+     setUserDetails({
       ...userdetails,
       [e.target.name]: e.target.value 
     });
   };
 
  
-
-  const notify= ()=>{
-    toast.success('❤️ Happy valentine!', {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      });
-  }
-
   return (
     <div className='valentine-container'>
       <h1 className='ask-her-out'>ASK HIM/HER OUT</h1>
@@ -97,7 +94,7 @@ export default function Valentine() {
           onChange={handleChange}
         />
 
-        <input
+        <input  
           placeholder='provide email'
           className='email'
           name='email'
@@ -113,13 +110,13 @@ export default function Valentine() {
           onChange={handleChange}
         />
 
-          <input
+          <textarea
           placeholder="provide message"
           value={userdetails.speak_from_heart}
           className='admirer'
           name='speak_from_heart'
           onChange={handleChange}
-        />
+        ></textarea>
 
         <label className='image-label' htmlFor='image'>Add your image here</label>
          <input 
@@ -132,7 +129,6 @@ export default function Valentine() {
          />
 
 
-
         <button className='btn' onClick={() => {
            handleSubmit(userdetails)
         }
@@ -141,28 +137,23 @@ export default function Valentine() {
         </button>
       </div>
   <div className='toast'>
-    <ToastContainer
-     position="top-center"
-     autoClose={5000}
-     hideProgressBar={false}
-     newestOnTop={false}
-     closeOnClick
-     rtl={false}
-     pauseOnFocusLoss
-     draggable
-     pauseOnHover
-     theme="light"
-     transition='Bounce'
-     />
-    </div>
-    {
-      userData&&( 
+    {valentineToast}
+    {toastBucket}
+  </div>
+
+   <div>
+   {
+      userData.admirerLink
+       ?( 
         <div className='url-link'>
-        <div className='link'>{userData.admirerLink}</div>
-      </div>
+            <div className='link'>{userData.admirerLink}</div>
+        </div>
+      ) : (
+        null
       )
       
-      }    
+    } 
+  </div>   
 
     </div>
   );

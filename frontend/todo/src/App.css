@@ -184,13 +184,101 @@
   border: 2px solid black;
   border-radius:10px ;
 }
-
+/* 
 .link{
   
+} */
+
+
+
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+
+  .valentine-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assests/valentine2.jpg');  background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    flex-direction: column;
+  }
+
+  .valentine-ask-out{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px solid #e4e4e4;
+    border-radius: 10px;
+    padding: 0px;
+    box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
+    background: #e4e4e4;
+    width: 400px;
+    height: 550px;
+  }
+
+
+  .name{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    outline: none;
+    width: 250px;
+  }
+  
+  .email{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    outline: none;
+    width: 250px;  
+  }
+  
+  .admirer{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    outline: none;
+    width: 250px;
+  }
+
+
+  .url-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:red;
+    width: 400px;
+    margin: 10px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius:10px ;
+  }
 }
 
 
-@media screen and (max-width:50em) {
+
+@media screen and (min-width: 375px) and (max-width: 667px) {
+  .valentine-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assests/valentine2.jpg');  background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    flex-direction: column;
+  }
 
   .valentine-ask-out{
 
@@ -204,7 +292,6 @@
     box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
     background: #e4e4e4;
     width: 300px;
-
   }
 
 
@@ -246,6 +333,154 @@
     height: 50px;
     border: 2px solid black;
     border-radius:10px ;
+  }
+}
+
+
+
+@media screen and (max-width:50em) {
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  .valentine-ask-out{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px solid #e4e4e4;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
+    background: #e4e4e4;
+    width: 300px;
+    background-attachment:fixed;
+  }
+
+
+  .name{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none;
+    width: 250px;
+  }
+  
+  .email{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none;
+    width: 250px;  
+  }
+  
+  .admirer{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    outline: none;
+    width: 250px;
+  }
+
+
+  .url-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:red;
+    width: 300px;
+    margin: 20px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius:10px ;
+  }
+}
+
+
+@media screen and (min-width: 280px) and (max-width: 653px){
+  .valentine-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assests/valentine2.jpg');  background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    flex-direction: column;
+    font-size: 12px;
+
+  }
+
+  .valentine-ask-out{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px solid #e4e4e4;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
+    background: #e4e4e4;
+    width: 240px;
+
+  }
+
+
+  .name{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    outline: none;
+    width: 200px;
+
+  }
+  
+  .email{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    outline: none;
+    width: 200px;
+
+  }
+  
+  .admirer{
+    background:rgba(255,0 , 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    outline: none;
+    width: 200px;
+  }
+
+
+  .url-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:red;
+    width: 200px;
+    margin: 20px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius:10px ;
+
+  
+  }
+
+  .link{
+    width: 200px;
   }
 }
 

@@ -1,146 +1,105 @@
 import React,{useEffect, useState} from 'react'
 import './Asking.css';
-import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import {useParams} from 'react-router-dom';
+import {fetchAdmirerData,postResult} from '../../Hooks/Hooks'
+import {notifyNo,notifyYes,toastBucket} from '../Success/Success'
 
 function Asking() {
   const [answer,setAnswer] = useState('');
-  const params = useParams()
-  console.log(params)
-  const [userDetails,setUserDetails] = useState({
-    id:'',
-    user:'',
-    speak_from_heart:'',
-    admirer:''
-  })
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const navigate = useNavigate()
+  const params = useParams()
+  const [userDetails,setUserDetails] = useState(null)
+  console.log(params)
 
-  const fetchAdmirerData = async()=>{
-      const {data} = await axios.get(`http://localhost:8000/message/78187`)
-      console.log(data)
-  }
+    
+  useEffect( ()=>{
+    const response = fetchAdmirerData(params)
+    if(response){
+      setUserDetails(response)
+    }
+  },[params])
 
-  const postResult = async(answer)=>{
-     await axios.post(`http://localhost:8000/message/78187`,{answer})
-  }
-
-  useEffect(()=>{
-    fetchAdmirerData()
-  })
 
   const handleDisableButton = () => {
     setButtonDisabled(true);
   };
 
-
-  const handleAnswer = async (answer) => {
-    try {
-      console.log('Answer', answer);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleOptionYes = () => {
-    handleAnswer('Yes');
-    setAnswer('Yes');
-    handleDisableButton()
-    notify();
-    navigateToHomePage();
-  };
-
-  const handleOptionNo = () => {
-    handleAnswer('No');
-    setAnswer('No');
-    handleDisableButton()
-    notifyNo();
-    navigateToHomePage();
-  };
-
-  const handleRandomQuote = async () =>{
-    //  const {data} =await axios.post('https://api-ninjas.com/api/quotes')
-    //  console.log(data)
-
-    console.log()
-  }
-
-
-  const notifyNo = ()=>{
-    toast.error('❤️ You have decline the proposal', {
-      position: "top-center",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      });
-  }
-
   const navigateToHomePage = () => {
-     setTimeout(()=>{
-      navigate('/valentine')
-    },5000)
+    setTimeout(()=>{
+     navigate('/valentine')
+   },5000)
+ }
+
+  const handleOptionYes = (answer) => {
+    setAnswer('Yes');
+    postResult(answer)
+    handleDisableButton()
+    notifyYes('❤️ You have accepted the proposal');
+    navigateToHomePage();
+  };
+
+  const handleOptionNo = (answer) => {
+    setAnswer('No');
+    postResult(answer)
+    handleDisableButton()
+    notifyNo('❤️ You have decline the proposal');
+    navigateToHomePage();
+  };
+
+  const alternativeName  = {
+    name:'Name here',
+    image: 'Image here',
+    speak_from_heart:'love message here'
   }
 
+const image ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-_G35VUQ2CYarDn1li3-w25wJHqH6P-07xb-Wt2jXwY8tV_3ybTfOfRrOA6kPt2jNrQ&usqp=CAU';
 
-  const notify= ()=>{
-    toast.success('❤️ You have accepted the proposal', {
-      position: "top-center",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      });
-  }
 
   return (
     <div className='asking-container'>
       
-       <img className='image' width='200px' height='200px' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-_G35VUQ2CYarDn1li3-w25wJHqH6P-07xb-Wt2jXwY8tV_3ybTfOfRrOA6kPt2jNrQ&usqp=CAU' alt='image'/>       <div className='ask-name'>name</div>
+       <img className='image'  src={userDetails ? 
+        userDetails.image : image} alt='image'/>  
+
+        <div className='ask-name'>{userDetails ? 
+        userDetails.name : alternativeName.name}</div>
 
       <div className='random-love-quote'>
-        <div>{}</div>
+        <div>{userDetails ? 
+        userDetails.speak_from_heart : alternativeName.speak_from_heart}</div>
       </div>
+
       <div className='quote'>
+
+        <div className='quote-holder'>
         <div className=''>Roses are Red,Violets are blue,love is in the sky</div>
         <div className=''>Would You be my valentine?💕</div>
+        </div>
 
        <div className='btn-container'> 
+
           <button 
-          className='btn-yes' 
-          onClick={handleOptionYes}
-          disabled={isButtonDisabled}
-          >Yes</button>
+              className='btn-yes' 
+              onClick={(answer)=>handleOptionYes(answer)}
+              disabled={isButtonDisabled}
+          >Yes
+          </button>
+
            <button 
-           onClick={handleOptionNo}
+           onClick={(answer)=>handleOptionNo(answer)}
            disabled={isButtonDisabled}
-           className='btn-no'> No</button></div>
+           className='btn-no'> 
+           No
+          </button>
+
+        </div>
+        {toastBucket}
       </div>
 
-      <ToastContainer
-       position="top-center"
-       autoClose={5000}
-       hideProgressBar={false}
-       newestOnTop={false}
-       closeOnClick
-       rtl={false}
-       pauseOnFocusLoss
-       draggable
-       pauseOnHover
-       theme="light"
-       transition='Bounce'
-     />
+
     </div>
   )
 }

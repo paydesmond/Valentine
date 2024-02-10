@@ -32,9 +32,9 @@
     grid-row: span 4;
     grid-row-end:4;
     background: #e4e4e4;
-    width: 200px;
-    border-radius: 50px;
-    height: 200px;
+    width:230px;
+    border-radius: 50%;
+    height: 230px;
     border: 2px solid  #ED2939;
     text-align: center;  
     margin: 20px; 
@@ -142,3 +142,323 @@
         height: 150px;
      }
  }
+
+ /* Media query for screen widths between 300px and 400px */
+@media screen and (min-width: 375px) and (max-width: 667px) {
+    .asking-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('../../assests/valentine2.jpg');
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        flex-direction: column;
+    }
+
+    .random-love-quote{
+        display: flex ;
+        justify-content: center;
+        align-items: center;
+        width: 330px;
+        height: 200px;
+        border: 1px solid black;
+        margin: 10px;
+        background: #e4e4e4;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.5); 
+    
+    }
+    .image{
+        grid-row: span 4;
+        grid-row-end:4;
+        background: #e4e4e4;
+        width: 200px;
+        border-radius: 50px;
+        height: 200px;
+        border: 2px solid  #ED2939;
+        text-align: center;  
+        margin: 20px; 
+    }
+    
+    .quote{
+        padding: 10px;
+        border-radius: 10px;
+        border: 5px solid #e4e4e4;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
+        background: #e4e4e4;
+        width: 330px;
+        height: 180px;
+     }
+
+     .quote-holder{
+        margin: 0px;
+
+     }
+
+     .btn-yes{
+        background: #3CA10F;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 100px;
+        color: #fff;
+    }
+    
+    .btn-no{
+        background: #ED2939;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 100px;
+        color: #fff;
+    }
+  }
+  
+
+
+  @media screen and (min-width: 360px) and (max-width: 740px) {
+    .asking-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('../../assests/valentine2.jpg');
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        flex-direction: column;
+    }
+
+    .random-love-quote{
+        display: flex ;
+        justify-content: center;
+        align-items: center;
+        width: 330px;
+        height: 200px;
+        border: 1px solid black;
+        margin: 10px;
+        background: #e4e4e4;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.5); 
+    
+    }
+    .image{
+        grid-row: span 4;
+        grid-row-end:4;
+        background: #e4e4e4;
+        width: 100px;
+        border-radius: 50px;
+        height: 100px;
+        border: 2px solid  #ED2939;
+        text-align: center;  
+        margin: 20px; 
+    }
+    
+    .quote{
+        padding: 10px;
+        border-radius: 10px;
+        border: 5px solid #e4e4e4;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
+        background: #e4e4e4;
+        width: 330px;
+        height: 180px;
+     }
+
+     .quote-holder{
+        margin: 0px;
+
+     }
+
+     .btn-yes{
+        background: #3CA10F;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 100px;
+        color: #fff;
+    }
+    
+    .btn-no{
+        background: #ED2939;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 100px;
+        color: #fff;
+    }
+  }
+  
+  @media screen and (min-width: 280px) and (max-width: 653px) {
+    .asking-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('../../assests/valentine2.jpg');
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    .random-love-quote{
+        display: flex ;
+        justify-content: center;
+        align-items: center;
+        width: 220px;
+        height: 100px;
+        border: 1px solid black;
+        margin: 10px;
+        background: #e4e4e4;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.5); 
+    
+    }
+    .image{
+        grid-row: span 4;
+        grid-row-end:4;
+        background: #e4e4e4;
+        width: 100px;
+        border-radius: 50px;
+        height: 100px;
+        border: 2px solid  #ED2939;
+        text-align: center;  
+        margin: 20px; 
+    }
+    
+    .quote{
+        padding: 10px;
+        border-radius: 10px;
+        border: 5px solid #e4e4e4;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
+        background: #e4e4e4;
+        width: 220px;
+        height: 200px;
+     }
+
+     .quote-holder{
+        margin-bottom: 60px;
+
+     }
+
+     .btn-yes{
+        background: #3CA10F;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 200px;
+        color: #fff;
+    }
+    
+    .btn-no{
+        background: #ED2939;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 200px;
+        color: #fff;
+    }
+  }
+  
+  @media screen and (min-width: 600px) and (max-width: 1024px) {
+    .asking-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('../../assests/valentine2.jpg');
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    .random-love-quote{
+        display: flex ;
+        justify-content: center;
+        align-items: center;
+        width: 220px;
+        height: 100px;
+        border: 1px solid black;
+        margin: 10px;
+        background: #e4e4e4;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.5); 
+    
+    }
+    .image{
+        grid-row: span 4;
+        grid-row-end:4;
+        background: #e4e4e4;
+        width: 100px;
+        border-radius: 50px;
+        height: 100px;
+        border: 2px solid  #ED2939;
+        text-align: center;  
+        margin: 20px; 
+    }
+    
+    .quote{
+        padding: 10px;
+        border-radius: 10px;
+        border: 5px solid #e4e4e4;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 4px 5px 10px 0 rgba(0, 0, 0, 0.5); 
+        background: #e4e4e4;
+        width: 220px;
+        height: 200px;
+     }
+
+     .quote-holder{
+        margin-bottom: 60px;
+
+     }
+
+     .btn-yes{
+        background: #3CA10F;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 200px;
+        color: #fff;
+    }
+    
+    .btn-no{
+        background: #ED2939;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 200px;
+        color: #fff;
+    }
+  }
+  
+
+  
