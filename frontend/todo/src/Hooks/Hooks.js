@@ -37,7 +37,11 @@ export const fetchAdmirerData = async(answer)=>{
 }
 
 export const postResult = async(answer)=>{
-  const {id} = answer
-  console.log('desmond', answer)
-//  await axios.post(`http://localhost:8000/message/${answer.id}`)
+try {
+   const {id} = answer
+   await axios.post(`http://localhost:8000/message/${answer.id}`)
+} catch (error) {
+  notifyNo('Something went please try again')
+
+}
 }

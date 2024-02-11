@@ -1,18 +1,20 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState} from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import {notifyHappyValentine,valentineToast,notifyNo,toastBucket} from '../Success/Success'
+import {notifyHappyValentine,valentineToast,notifyNo,toastBucket, notifyYes} from '../../components/Success/Success'
+import Clipboard from '../../components/Clipboard/Clipboard';
+import { useNavigate } from 'react-router-dom';
 
 const BASE_URL='http://localhost:8000/send-link/'
 
 
 export default function Valentine() {
+  const navigate = useNavigate();
   const [userData,setUserData]=useState({
     image:'',
     admirerLink:''
   })
-
-
+  
   const [userdetails, setUserDetails] = useState({
     first_name: '',
     email: '',
@@ -23,7 +25,6 @@ export default function Valentine() {
 
   const handleSubmit = async (userdetails) => {
     try{
-      console.log(userdetails)
       const {first_name,email,admirer,image,speak_from_heart} = userdetails
 
       if(!first_name || !email || !admirer || !image || !speak_from_heart){
@@ -79,10 +80,14 @@ export default function Valentine() {
       [e.target.name]: e.target.value 
     });
   };
-
+  const userdata = {
+    admirerLink: 'https://google.com',
+  };
  
   return (
     <div className='valentine-container'>
+      <button onClick={()=>navigate('/valentine/documentation')} className='docs-v'>DOCS</button>
+
       <h1 className='ask-her-out'>ASK HIM/HER OUT</h1>
 
       <div className='valentine-ask-out'>
@@ -145,9 +150,15 @@ export default function Valentine() {
    {
       userData.admirerLink
        ?( 
-        <div className='url-link'>
-            <div className='link'>{userData.admirerLink}</div>
-        </div>
+      <>
+            
+              <button onClick={()=>{
+                notifyYes('Copied Successfully')
+                 
+                }} className='link'>
+              <Clipboard linkText={userdata.admirerLink} />
+              </button>
+      </>
       ) : (
         null
       )

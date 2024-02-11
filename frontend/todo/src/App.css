@@ -39,6 +39,14 @@
   }
 }
 
+.docs-v{
+  font-size: 15;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+}
 
 .ask-her-out{
   font-size: 20px;
@@ -177,19 +185,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background:red;
+  background:#3e3e3e;
   width: 370px;
   margin: 20px;
   height: 50px;
-  border: 2px solid black;
+  border: 2px solid #e4e4e4;
   border-radius:10px ;
+  color: #fff;
 }
-/* 
+
 .link{
-  
-} */
+  cursor: pointer;
+}
 
-
+.copy{
+  background: lightcoral;
+  border: 1px solid white;
+  padding: 2px;
+  border-radius: 8px;
+}
 
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
@@ -255,12 +269,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:red;
-    width: 400px;
-    margin: 10px;
+    background:#3e3e3e;
+    width: 370px;
+    margin: 20px;
     height: 50px;
-    border: 2px solid black;
+    border: 2px solid #e4e4e4;
     border-radius:10px ;
+    color: #fff;
+  }
+  
+  .link{
+    cursor: pointer;
+  }
+  
+  .copy{
+    background: lightcoral;
+    border: 1px solid white;
+    padding: 2px;
   }
 }
 
@@ -327,12 +352,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:red;
-    width: 300px;
+    background:#3e3e3e;
+    width: 380px;
     margin: 20px;
     height: 50px;
-    border: 2px solid black;
+    border: 2px solid #e4e4e4;
     border-radius:10px ;
+    color: #fff;
+  }
+  
+  .link{
+    cursor: pointer;
+  }
+  
+  .copy{
+    background: lightcoral;
+    border: 1px solid white;
+    padding: 2px;
   }
 }
 
@@ -393,12 +429,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:red;
+    background:#3e3e3e;
     width: 300px;
     margin: 20px;
     height: 50px;
-    border: 2px solid black;
+    border: 2px solid #e4e4e4;
     border-radius:10px ;
+    color: #fff;
+  }
+  
+  .link{
+    cursor: pointer;
+  }
+  
+  .copy{
+    background: lightcoral;
+    border: 1px solid white;
+    padding: 2px;
   }
 }
 
@@ -469,18 +516,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:red;
-    width: 200px;
+    background:#3e3e3e;
+    width: 230px;
     margin: 20px;
     height: 50px;
-    border: 2px solid black;
+    border: 2px solid #e4e4e4;
     border-radius:10px ;
-
-  
+    color: #fff;
   }
-
+  
   .link{
-    width: 200px;
+    cursor: pointer;
+  }
+  
+  .copy{
+    background: lightcoral;
+    border: 1px solid white;
+    padding: 2px;
   }
 }
 

@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 import {fetchAdmirerData,postResult} from '../../Hooks/Hooks'
-import {notifyNo,notifyYes,toastBucket} from '../Success/Success'
+import {notifyNo,notifyYes,toastBucket} from '../../components/Success/Success'
 
 function Asking() {
   const [answer,setAnswer] = useState('');
@@ -57,12 +57,10 @@ function Asking() {
 
 const image ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-_G35VUQ2CYarDn1li3-w25wJHqH6P-07xb-Wt2jXwY8tV_3ybTfOfRrOA6kPt2jNrQ&usqp=CAU';
 
-
   return (
     <div className='asking-container'>
       
-       <img className='image'  src={userDetails ? 
-        userDetails.image : image} alt='image'/>  
+       <img className='image' src={image} alt='image'/>  
 
         <div className='ask-name'>{userDetails ? 
         userDetails.name : alternativeName.name}</div>
@@ -75,8 +73,8 @@ const image ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-_G35VUQ2C
       <div className='quote'>
 
         <div className='quote-holder'>
-        <div className=''>Roses are Red,Violets are blue,love is in the sky</div>
-        <div className=''>Would You be my valentine?💕</div>
+        <div>Roses are Red,Violets are blue,love is in the sky</div>
+        <div>Would You be my valentine?💕</div>
         </div>
 
        <div className='btn-container'> 
