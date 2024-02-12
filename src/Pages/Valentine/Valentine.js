@@ -86,7 +86,7 @@ export default function Valentine() {
  
   return (
     <div className='valentine-container'>
-      <button onClick={()=>navigate('/valentine/documentation')} className='docs-v'>FOR INFO ON USAGE CLICK HERE</button>
+      <button onClick={()=>navigate('/askcrushout/documentation')} className='docs-v'>FOR INFO ON USAGE CLICK HERE</button>
 
       <h1 className='ask-her-out'>ASK HIM/HER OUT</h1>
 

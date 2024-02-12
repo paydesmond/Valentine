@@ -29,7 +29,7 @@ function Asking() {
 
   const navigateToHomePage = () => {
     setTimeout(()=>{
-     navigate('/valentine')
+     navigate('/askcrushout')
    },5000)
  }
 

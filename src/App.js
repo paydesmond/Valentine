@@ -1,7 +1,6 @@
-// import Toast from './components/Toast/Toast';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Valentine from './Pages/Valentine/Valentine';
-import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router-dom'
 import AskingLayout from './Layouts/AskingLayout/AskingLayout';
 import HomeLayout from './Layouts/HomeLayout/HomeLayout';
 import ValentineLayout from './Layouts/ValentineLayout/ValentineLayout';
@@ -11,32 +10,32 @@ import Documentation from './Pages/Documentation/Documentation';
 import Asking from './Pages/Asking/Asking';
 
 function App() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-       <Route path='/askcrushout' element={<HomeLayout/>}>
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route path='/' exact element={<HomeLayout />}>
 
-            <Route path='' element={<ValentineLayout/>}>
-               <Route  path='' element={<Valentine/>}/>
+            <Route path='/askcrushout'  element={<ValentineLayout />}>
+              <Route path='' element={<Valentine />} />
+              <Route path='documentation' element={<Documentation />} />
+              <Route path='asking/:id' element={<Asking />} />
+
             </Route>
 
+            {/* <Route path='/documentation' element={<DocumentationLayout />}>
+            </Route> */}
 
-           <Route path='documentation'  element={<DocumentationLayout/>}>
-               <Route path='' element={<Documentation/>}/>
-           </Route>
+            {/* <Route path='/asking' element={<AskingLayout />}>
+              <Route path=':id' element={<Asking />} />
+            </Route> */}
 
-           
-            <Route path='asking' element={<AskingLayout/>}>
-               <Route  path=':id' element={<Asking/>}/>
-            </Route> 
+            <Route path='*' element={<Notfound />} />
 
-
-           <Route path='*' element={<Notfound/>}/>
-       </Route>
-    )
-  )
-
-  return (
-          <RouterProvider router={router}/>
+          </Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 

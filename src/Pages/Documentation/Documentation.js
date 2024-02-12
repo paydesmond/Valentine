@@ -43,7 +43,7 @@ const Documentation = () => {
         <li><strong>Share:</strong>
           <ul>
             <li>Share the generated link with your admirer via email, messaging apps, or any other preferred method.</li>
-            <li><button className='docs-btn' onClick={()=>navigate('/valentine')}>Click here to begin</button></li>
+            <li><button className='docs-btn' onClick={()=>navigate('/askcrushout')}>Click here to begin</button></li>
           </ul>
         </li>
       </ol>
