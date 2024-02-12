@@ -5,7 +5,6 @@ const BASE_URL='http://localhost:8000/send-link/';
 export const sendData= async (userdetails)=>{
     try{
       const {data} = await axios.post(BASE_URL,userdetails)
-      console.log(data)
     }
     catch (error){
       notifyNo('Something went please try again')
@@ -39,9 +38,8 @@ export const fetchAdmirerData = async(answer)=>{
 export const postResult = async(answer)=>{
 try {
    const {id} = answer
-   await axios.post(`http://localhost:8000/message/${answer.id}`)
+   await axios.post(`http://localhost:8000/message/${id}`)
 } catch (error) {
   notifyNo('Something went please try again')
-
 }
 }

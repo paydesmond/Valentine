@@ -86,7 +86,7 @@ export default function Valentine() {
  
   return (
     <div className='valentine-container'>
-      <button onClick={()=>navigate('/valentine/documentation')} className='docs-v'>DOCS</button>
+      <button onClick={()=>navigate('/valentine/documentation')} className='docs-v'>FOR INFO ON USAGE CLICK HERE</button>
 
       <h1 className='ask-her-out'>ASK HIM/HER OUT</h1>
 
@@ -148,7 +148,8 @@ export default function Valentine() {
 
    <div>
    {
-      userData.admirerLink
+      // userData.admirerLink
+      true
        ?( 
       <>
             
@@ -156,7 +157,7 @@ export default function Valentine() {
                 notifyYes('Copied Successfully')
                  
                 }} className='link'>
-              <Clipboard linkText={userdata.admirerLink} />
+              <Clipboard linkText={userData.admirerLink} />
               </button>
       </>
       ) : (
