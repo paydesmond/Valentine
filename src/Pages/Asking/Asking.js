@@ -28,7 +28,7 @@ function Asking() {
 
   const navigateToHomePage = () => {
     setTimeout(()=>{
-     navigate('/askcrushout')
+     navigate('/')
    },5000)
  }
 

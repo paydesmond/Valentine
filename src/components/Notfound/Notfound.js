@@ -18,7 +18,7 @@ const Notfound = () => {
      style={{
         textDecoration:'underline'
      }}
-     onClick={()=>navigate('/askcrushout')}> Click here to go to homepage</button>
+     onClick={()=>navigate('/')}> Click here to go to homepage</button>
     </div>
   )
 }
