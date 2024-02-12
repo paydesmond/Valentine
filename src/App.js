@@ -13,7 +13,7 @@ import Asking from './Pages/Asking/Asking';
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-       <Route path='/valentine' element={<HomeLayout/>}>
+       <Route path='/askcrushout' element={<HomeLayout/>}>
 
             <Route path='' element={<ValentineLayout/>}>
                <Route  path='' element={<Valentine/>}/>

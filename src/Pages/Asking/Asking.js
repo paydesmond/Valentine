@@ -13,13 +13,13 @@ function Asking() {
   const params = useParams()
   const [userDetails,setUserDetails] = useState(null)
   console.log(params)
-
     
-  useEffect( ()=>{
-    const response = fetchAdmirerData(params)
-    if(response){
+  useEffect(()=>{
+    const fetchData = async(params)=>{
+      const response = await fetchAdmirerData(params)
       setUserDetails(response)
     }
+    fetchData(params)
   },[params])
 
 
@@ -63,7 +63,7 @@ const image ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-_G35VUQ2C
        <img className='image' src={image} alt='image'/>  
 
         <div className='ask-name'>{userDetails ? 
-        userDetails.name : alternativeName.name}</div>
+        userDetails.first_name : alternativeName.name}</div>
 
       <div className='random-love-quote'>
         <div>{userDetails ? 

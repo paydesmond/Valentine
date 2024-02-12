@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { notifyNo } from '../components/Success/Success';
+import { useState } from 'react';
 const BASE_URL='http://localhost:8000/send-link/';
 
 export const sendData= async (userdetails)=>{
@@ -9,26 +10,19 @@ export const sendData= async (userdetails)=>{
     catch (error){
       notifyNo('Something went please try again')
     }
-  
+
 }
+// https://askcrushout.onrender.com/apiperson/
+
 
 export const fetchAdmirerData = async(answer)=>{
   try {
     const {id} = answer
-    const {data} = await axios.get(`http://localhost:8000/message/${id}`)
+    const {data} = await axios.get(`https://askcrushout.onrender.com/apiperson/${43041}`)
 
-    if(data){
-    const {id,user,speak_from_heart,admirer,image} = data
-  
-    const userDetails = {
-      id,
-      user,
-      speak_from_heart,
-      admirer,
-      image
-    }
-    return userDetails
-  }
+    console.log('insidehooks',data)
+    return data
+
   } catch (error) {
     notifyNo('Something went please try again')
   }
