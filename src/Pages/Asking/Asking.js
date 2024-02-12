@@ -22,7 +22,6 @@ function Asking() {
     fetchData(params)
   },[params])
 
-
   const handleDisableButton = () => {
     setButtonDisabled(true);
   };
