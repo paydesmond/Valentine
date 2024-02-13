@@ -5,8 +5,8 @@ import {notifyHappyValentine,valentineToast,notifyNo,toastBucket, notifyYes} fro
 import Clipboard from '../../components/Clipboard/Clipboard';
 import { useNavigate } from 'react-router-dom';
 
-const BASE_URL='http://localhost:8000/send-link/'
 
+// BASEURL =`https://askcrushout.onrender.com/api/person/1213`
 
 export default function Valentine() {
   const navigate = useNavigate();
@@ -16,6 +16,7 @@ export default function Valentine() {
   })
   
   const [userdetails, setUserDetails] = useState({
+    id:'',
     first_name: '',
     email: '',
     admirer: '',
@@ -31,7 +32,7 @@ export default function Valentine() {
         notifyNo('Please provide all details')
       } else{
         
-        const {data:{image,link}} = await axios.post(BASE_URL, userdetails)
+        const {data:{image,link}} = await axios.post(`https://askcrushout.onrender.com/api/person`, userdetails)
 
         if(image || link){
           setUserData({

@@ -5,22 +5,24 @@ import { useNavigate } from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 import {fetchAdmirerData,postResult} from '../../Hooks/Hooks'
 import {notifyNo,notifyYes,toastBucket} from '../../components/Success/Success'
+import { useDispatch,useSelector } from 'react-redux';
+
 
 function Asking() {
   const [answer,setAnswer] = useState('');
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const navigate = useNavigate()
-  const params = useParams()
   const [userDetails,setUserDetails] = useState(null)
-  console.log(params)
+
+ const userData = useSelector(state=>state.userdata)
     
   useEffect(()=>{
-    const fetchData = async(params)=>{
-      const response = await fetchAdmirerData(params)
+    const fetchData = async()=>{
+      const response = await fetchAdmirerData(userData)
       setUserDetails(response)
     }
-    fetchData(params)
-  },[params])
+    fetchData()
+  },[userData])
 
   const handleDisableButton = () => {
     setButtonDisabled(true);
