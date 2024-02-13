@@ -77,7 +77,7 @@ const image ='https://th.bing.com/th/id/R.47cecf6ce91d73af7900067efeaacb63?rik=%
   return (
     <div className='asking-container'>
       
-       <img className='image' src={userDetails ? userDetails.image : image} alt='image'/>  
+       {/* <img className='image' src={userDetails ? userDetails.image : image} alt='image'/>   */}
 
         <div className='ask-name'>{userDetails ? 
         userDetails.first_name : alternativeName.name}</div>
