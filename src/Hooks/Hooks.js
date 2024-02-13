@@ -15,11 +15,25 @@ export const sendData= async (userdetails)=>{
 }
 
 // https://askcrushout.onrender.com/api/person/1213/
-export const fetchAdmirerData1 = async(answer)=>{
+// export const fetchAdmirerData1 = async(answer)=>{
 
+//   try {
+//     const {id} = answer
+//     const {data} = await axios.get(`https://askcrushout.onrender.com/api/person/${id}`)
+//     return data
+
+//   } catch (error) {
+//     notifyNo('Something went please try again')
+//   }
+
+// }
+
+// https://askcrushout.onrender.com/api/person/
+export const fetchAdmirerData = async({id})=>{
   try {
-    const {id} = answer
+    // const {id} = id
     const {data} = await axios.get(`https://askcrushout.onrender.com/api/person/${id}`)
+
     return data
 
   } catch (error) {
@@ -28,27 +42,11 @@ export const fetchAdmirerData1 = async(answer)=>{
 
 }
 
-
-export const fetchAdmirerData = async(id)=>{
+export const postResult = async ({ id, answer }) => {
   try {
-    const {id} = id
-    console.log('hooks',id)
-    const {data} = await axios.get(`https://askcrushout.onrender.com/api/person/${id}`)
-
-    console.log('insidehooks',data)
-    return data
-
+   
+    const { data } = await axios.post(`https://askcrushout.onrender.com/api/asking/${id}`, { message: answer });
   } catch (error) {
-    notifyNo('Something went please try again')
+    notifyNo('Something went wrong. Please try again.');
   }
-
-}
-
-export const postResult = async(answer)=>{
-try {
-   const {id} = answer
-   await axios.post(`http://localhost:8000/message/${id}`)
-} catch (error) {
-  notifyNo('Something went please try again')
-}
-}
+};

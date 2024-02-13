@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Front.css';
 import { useState } from 'react'; // Removed unused imports
 import { notifyNo, valentineToast } from '../../components/Success/Success';
-import { fetchAdmirerData1 } from '../../Hooks/Hooks';
+import { fetchAdmirerData } from '../../Hooks/Hooks';
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../../Features/idSlice';
 
@@ -26,27 +26,35 @@ const Front = () => {
   const handleNavigate = async () => {
 
     setTimeout(async () => {
-      if (!isNaN(id.id)) {
-        const data = await fetchAdmirerData1(id);
+      if (!isNaN(id.id) || !id.id==='') {
+        const data = await fetchAdmirerData(id);
+        setId({
+          ...id,
+          id:''
+        })
         dispatch(setUserData(data))
         if (data) {
           navigate('/asking');
         }
       } else {
         notifyNo('Please provide a valid ID');
+        setId({
+          ...id,
+          id:''
+        })
       }
-    }, 2000);
+    },);
   };
 
   return (
     <div className='front-container'>
+      <button onClick={()=>navigate('/initial-docs')} className='front-docs'>FOR INFO ON USAGE CLICK HERE</button>
       <div className='front-item'>
-        <Link className='link-h' onClick={handleClick}>
+        <Link className='link-h' onClick={handleClick} >
           CHECK OUT YOUR MESSAGE
         </Link>
 
-        {accessed &&  
-          <div className='user-id'>
+        { accessed && <div className='user-id'>
             <input
               name='id'
               value={id.id}

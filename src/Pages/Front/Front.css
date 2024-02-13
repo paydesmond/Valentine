@@ -12,6 +12,18 @@
     flex-direction: column;
 }
 
+.front-docs{
+    font-size: 15;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 50px;
+    padding: 0px;
+    background: lightcoral;
+    border-radius: 4px;
+    height: 50px;
+    padding: 6px;
+}
 
 .front-item{
     /* padding: 20px;

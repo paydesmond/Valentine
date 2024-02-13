@@ -1,5 +1,5 @@
-.random-love-quote{
-    display: flex ;
+.random-love-quote {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 500px;
@@ -9,10 +9,17 @@
     background: #e4e4e4;
     border-radius: 10px;
     border: 1px solid #fff;
-    box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.5); 
+    box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
 
 }
 
+.love-quote {
+    white-space: pre-wrap;
+    flex-wrap: wrap;
+    width: 200px;
+    overflow-y: auto;
+}
 
 .asking-container{
     display: flex;
@@ -26,7 +33,11 @@
     background-attachment: fixed;
     background-position: center;
     flex-direction: column;
+    white-space: pre-wrap;
+    text-align: center;
+
 }
+
 
 .image{
     grid-row: span 4;
@@ -251,8 +262,7 @@
         background: #e4e4e4;
         border-radius: 10px;
         border: 1px solid #fff;
-        box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.5); 
-    
+        box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.5);
     }
     .image{
         grid-row: span 4;

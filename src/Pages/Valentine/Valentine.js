@@ -4,11 +4,13 @@ import axios from 'axios';
 import {notifyHappyValentine,valentineToast,notifyNo,toastBucket, notifyYes} from '../../components/Success/Success'
 import Clipboard from '../../components/Clipboard/Clipboard';
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 
 // BASEURL =`https://askcrushout.onrender.com/api/person/1213`
 
 export default function Valentine() {
+
   const navigate = useNavigate();
   const [userData,setUserData]=useState({
     image:'',
@@ -16,7 +18,6 @@ export default function Valentine() {
   })
   
   const [userdetails, setUserDetails] = useState({
-    id:'',
     first_name: '',
     email: '',
     admirer: '',
@@ -32,13 +33,15 @@ export default function Valentine() {
         notifyNo('Please provide all details')
       } else{
         
-        const {data:{image,link}} = await axios.post(`https://askcrushout.onrender.com/api/person`, userdetails)
+        const {data:{image,link,id}} = await axios.post(`https://askcrushout.onrender.com/api/send-link/`, userdetails)
 
+        console.log(userdetails)
         if(image || link){
           setUserData({
             ...userData,
             image,
-            admirerLink:link
+            admirerLink:link,
+            userId:id
           })
   
           notifyHappyValentine('❤️ Happy valentine!')
@@ -149,8 +152,7 @@ export default function Valentine() {
 
    <div>
    {
-      // userData.admirerLink
-      true
+      userData.admirerLink
        ?( 
       <>
             
@@ -158,7 +160,10 @@ export default function Valentine() {
                 notifyYes('Copied Successfully')
                  
                 }} className='link'>
-              <Clipboard linkText={userData.admirerLink} />
+              <Clipboard linkText={`
+              Link: ${userData.admirerLink},
+              
+              ID: ${userData.userId}`} />
               </button>
       </>
       ) : (

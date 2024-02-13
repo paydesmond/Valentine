@@ -5,7 +5,8 @@ const Documentation = () => {
   const navigate = useNavigate()
   return (
     <>
-    <div className="container">
+   <div className='main-container'>
+   <div className="container">
       <h1>Valentine App Documentation</h1>
 
       <h2>Overview</h2>
@@ -48,9 +49,9 @@ const Documentation = () => {
         </li>
       </ol>
     </div>
+   </div>
 
-    
-
+  
     </>
     
   );

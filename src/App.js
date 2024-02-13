@@ -8,6 +8,7 @@ import Asking from './Pages/Asking/Asking';
 import Front from './Pages/Front/Front';
 import { Provider } from 'react-redux';
 import { store } from './components/Store/store';
+import FrontDocs from './components/FrontDocs/FrontDocs';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path='askcrushout' element={<Valentine />} />
             <Route path='documentation' element={<Documentation />} />
             <Route path='asking' element={<Asking />} />
+            <Route path='initial-docs' element={<FrontDocs />} />
             <Route path='*' element={<Notfound />} />
           </Route>
         </Routes>

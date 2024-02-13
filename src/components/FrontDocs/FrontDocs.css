@@ -1,0 +1,53 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assests/valentine2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: lightcoral;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+    color: #fff;
+  }
+  
+  .container h2 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+  }
+  
+  .container h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .container p {
+    margin: 10px 0;
+  }
+  
+  .container ol,
+  .container ul {
+    margin: 10px 0;
+    padding-left: 20px;
+  }
+  
+  .container li {
+    margin-bottom: 5px;
+  }
+  
+  .container strong {
+    font-weight: bold;
+  }
+  
+

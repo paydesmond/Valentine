@@ -9,13 +9,19 @@ import { useDispatch,useSelector } from 'react-redux';
 
 
 function Asking() {
-  const [answer,setAnswer] = useState('');
+  const [answer,setAnswer] = useState({
+    id: '',
+    answer:''
+   });
+
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const navigate = useNavigate()
   const [userDetails,setUserDetails] = useState(null)
 
- const userData = useSelector(state=>state.userdata)
+ const userData = useSelector(state=>state.id.userdata)
     
+
+
   useEffect(()=>{
     const fetchData = async()=>{
       const response = await fetchAdmirerData(userData)
@@ -34,61 +40,74 @@ function Asking() {
    },5000)
  }
 
-  const handleOptionYes = (answer) => {
-    setAnswer('Yes');
-    postResult(answer)
-    handleDisableButton()
-    notifyYes('❤️ You have accepted the proposal');
-    navigateToHomePage();
+ const handleOptionYes = async () => {
+  const updatedAnswer = {
+    ...answer,
+    id: userDetails.id,
+    answer: 'Yes'
   };
+  setAnswer(updatedAnswer);
+  handleDisableButton();
+  notifyYes('❤️ You have accepted the proposal');
+  await postResult(updatedAnswer);
+  navigateToHomePage();
+};
 
-  const handleOptionNo = (answer) => {
-    setAnswer('No');
-    postResult(answer)
-    handleDisableButton()
-    notifyNo('❤️ You have decline the proposal');
-    navigateToHomePage();
+const handleOptionNo = async () => {
+  const updatedAnswer = {
+    ...answer,
+    id: userDetails.id,
+    answer: 'No'
   };
+  setAnswer(updatedAnswer);
+  handleDisableButton();
+  notifyNo('❤️ You have declined the proposal');
+  await postResult(updatedAnswer);
+  navigateToHomePage();
+};
 
   const alternativeName  = {
     name:'Name here',
     image: 'Image here',
-    speak_from_heart:'love message here'
+    speak_from_heart:'Message here'
   }
 
-const image ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-_G35VUQ2CYarDn1li3-w25wJHqH6P-07xb-Wt2jXwY8tV_3ybTfOfRrOA6kPt2jNrQ&usqp=CAU';
+const image ='https://th.bing.com/th/id/R.47cecf6ce91d73af7900067efeaacb63?rik=%2btKMy%2fBRVLblKA&pid=ImgRaw&r=0';
 
   return (
     <div className='asking-container'>
       
-       <img className='image' src={image} alt='image'/>  
+       <img className='image' src={userDetails ? userDetails.image : image} alt='image'/>  
 
         <div className='ask-name'>{userDetails ? 
         userDetails.first_name : alternativeName.name}</div>
 
       <div className='random-love-quote'>
-        <div>{userDetails ? 
+        <div className='love-quote'>{userDetails ? 
         userDetails.speak_from_heart : alternativeName.speak_from_heart}</div>
       </div>
 
       <div className='quote'>
 
         <div className='quote-holder'>
-        <div>Roses are Red,Violets are blue,love is in the sky</div>
-        <div>Would You be my valentine?💕</div>
+         <div>Would You be my valentine?💕</div>
         </div>
 
        <div className='btn-container'> 
 
           <button 
               className='btn-yes' 
-              onClick={(answer)=>handleOptionYes(answer)}
+              onClick={async()=>{
+                handleOptionYes()
+              }}
               disabled={isButtonDisabled}
           >Yes
           </button>
 
            <button 
-           onClick={(answer)=>handleOptionNo(answer)}
+           onClick={async()=>{
+            handleOptionNo()
+          }}
            disabled={isButtonDisabled}
            className='btn-no'> 
            No
