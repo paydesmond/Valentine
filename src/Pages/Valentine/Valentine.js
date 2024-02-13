@@ -127,7 +127,7 @@ export default function Valentine() {
           onChange={handleChange}
         ></textarea>
 
-        <label className='image-label' htmlFor='image'>Add your image here</label>
+        {/* <label className='image-label' htmlFor='image'>Add your image here</label>
          <input 
          type="file" 
          name="image" 
@@ -135,7 +135,7 @@ export default function Valentine() {
          className='image-input'
          value={userdetails.image}
          onChange={handleChange}
-         />
+         /> */}
 
         <button className='btn' onClick={() => {
            handleSubmit(userdetails)
@@ -162,7 +162,7 @@ export default function Valentine() {
                 }} className='link'>
               <Clipboard linkText={`
               Link: ${userData.admirerLink},
-              
+
               ID: ${userData.userId}`} />
               </button>
       </>
