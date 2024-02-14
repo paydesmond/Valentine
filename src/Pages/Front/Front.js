@@ -51,7 +51,7 @@ const Front = () => {
       <button onClick={()=>navigate('/initial-docs')} className='front-docs'>FOR INFO ON USAGE CLICK HERE</button>
       <div className='front-item'>
         <Link className='link-h' onClick={handleClick} >
-          CHECK OUT YOUR MESSAGE
+          CHECK OUT YOUR MESSAGE VIA ID
         </Link>
 
         { accessed && <div className='user-id'>
