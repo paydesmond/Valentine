@@ -5,10 +5,10 @@ import {  useNavigate } from 'react-router-dom';
 const FrontDocs = () => {
     const navigate = useNavigate()
   return (
-    <div className='main-container'>
-      <div className='container'>
+    <div className='docs-main-container'>
+      <div className='docs-container'>
         <h2>Overview</h2>
-        <p>The front page of the application allows users to access their messages and ask someone out. It presents two main sections: "CHECK OUT YOUR MESSAGE" and "ASK HIM / HER OUT".</p>
+        <p>The front page of the application allows users to access their messages and ask someone out. It presents two main sections: "CHECK OUT YOUR MESSAGE VIA ID" and "ASK HIM / HER OUT".</p>
 
         <h2>How to Use</h2>
         <h3>Checking Your Message</h3>
