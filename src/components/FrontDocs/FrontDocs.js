@@ -13,7 +13,7 @@ const FrontDocs = () => {
         <h2>How to Use</h2>
         <h3>Checking Your Message</h3>
         <ol>
-          <li>Click on the "CHECK OUT YOUR MESSAGE" link.</li>
+          <li>Click on "CHECK OUT YOUR MESSAGE VIA ID" link.</li>
           <li>If prompted, enter your ID in the provided input field.</li>
           <li>Click the "GO" button to proceed.</li>
           <li>You will be redirected to view your message.</li>
