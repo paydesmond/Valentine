@@ -24,11 +24,11 @@ const Documentation = () => {
             <li>Write a heartfelt message in the textarea provided.</li>
           </ul>
         </li>
-        <li><strong>Upload Image:</strong>
+        {/* <li><strong>Upload Image:</strong>
           <ul>
             <li>Click on the "Add your image here" label to select an image file from your device.</li>
           </ul>
-        </li>
+        </li> */}
         <li><strong>Submit:</strong>
           <ul>
             <li>Click the "SUBMIT" button to submit your details and generate the invitation link.</li>
