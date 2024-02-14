@@ -44,7 +44,6 @@ export const fetchAdmirerData = async({id})=>{
 
 export const postResult = async ({ id, answer }) => {
   try {
-   
     const { data } = await axios.post(`https://askcrushout.onrender.com/api/asking/${id}`, { message: answer });
   } catch (error) {
     notifyNo('Something went wrong. Please try again.');

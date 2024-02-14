@@ -13,7 +13,7 @@ export default function Valentine() {
 
   const navigate = useNavigate();
   const [userData,setUserData]=useState({
-    image:'',
+    // image:'',
     admirerLink:''
   })
   
@@ -21,7 +21,7 @@ export default function Valentine() {
     first_name: '',
     email: '',
     admirer: '',
-    image:'',
+    // image:'',
     speak_from_heart:''
   });
 
@@ -29,17 +29,17 @@ export default function Valentine() {
     try{
       const {first_name,email,admirer,image,speak_from_heart} = userdetails
 
-      if(!first_name || !email || !admirer || !image || !speak_from_heart){
+      if(!first_name || !email || !admirer || !speak_from_heart){
         notifyNo('Please provide all details')
       } else{
         
-        const {data:{image,link,id}} = await axios.post(`https://askcrushout.onrender.com/api/send-link/`, userdetails)
+        const {data:{link,id}} = await axios.post(`https://askcrushout.onrender.com/api/send-link/`, userdetails)
 
         console.log(userdetails)
         if(image || link){
           setUserData({
             ...userData,
-            image,
+            // image,
             admirerLink:link,
             userId:id
           })
@@ -51,7 +51,7 @@ export default function Valentine() {
             first_name: '',
             email: '',
             admirer: '',
-            image:'',
+            // image:'',
             speak_from_heart:''
           })
         }
@@ -61,7 +61,7 @@ export default function Valentine() {
            first_name: '',
            email: '',
            admirer: '',
-           image:'',
+          //  image:'',
            speak_from_heart:''
          })
     }
@@ -72,7 +72,7 @@ export default function Valentine() {
         first_name: '',
         email: '',
         admirer: '',
-        image:'',
+        // image:'',
         speak_from_heart:''
       })
     }
