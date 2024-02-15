@@ -7,7 +7,7 @@ class Clipboard extends React.Component {
       <div className='url-link'>
         <CopyToClipboard text={this.props.linkText}>
           <div>
-          <span className='link'>{this.props.linkText} <span className='copy'>Copy</span></span>
+          <span className='link'>{this.props.linkText} <span className='copy'>Click To Copy Link</span></span>
           </div>
         </CopyToClipboard>
       </div>

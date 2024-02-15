@@ -161,9 +161,7 @@ export default function Valentine() {
                  
                 }} className='link'>
               <Clipboard linkText={`
-              Link: ${userData.admirerLink},
-
-              ID: ${userData.userId}`} />
+              ${userData.admirerLink}`} />
               </button>
       </>
       ) : (

@@ -1,0 +1,34 @@
+.working-on{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assests/valentine2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    flex-direction: column;
+    color: #fff;
+   
+ 
+}
+
+h1{
+    color: #fff;
+}
+
+.work-v{
+ 
+    text-align: center;
+    background: lightcoral;
+    border-radius: 10px;
+    border: 5px solid #fff;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+
+
+}
+
