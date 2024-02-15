@@ -10,40 +10,46 @@
     background-attachment: fixed;
     background-position: center;
   }
-  
+
+  .docs-container-grid{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    gap: 10px;
+  }
   .docs-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
     background: lightcoral;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 13px;
+    font-size: 11px;
     color: #fff;
+    max-height: 420px;
   }
   
   .docs-container h2 {
-    font-size: 20px;
-    margin: 20px 0 10px;
+    font-size: 18px;
+    margin: 10px 0 10px;
   }
   
   .container h3 {
     font-size: 18px;
-    margin: 10px 0;
+    margin: 5px 0;
   }
   
   .docs-container p {
-    margin: 10px 0;
+    margin: 5px 0;
   }
   
   .docs-container ol,
   .docs-container ul {
-    margin: 10px 0;
+    margin: 5px 0;
     padding-left: 20px;
   }
   
   .docs-container li {
-    margin-bottom: 5px;
+    margin-bottom: 1px;
   }
   
   .docs-container strong {
@@ -51,3 +57,137 @@
   }
   
 
+  @media screen and (max-width:50em) {
+
+  }
+  
+
+
+  @media screen and (min-width: 375px) and (max-width: 667px) {
+    .docs-main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assests/valentine2.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+  
+    .docs-container-grid{
+      display: grid;
+      grid-template-columns: 300px;
+      gap: 10px;
+    }
+    .docs-container {
+      max-width: 600px;
+      margin: 10px auto;
+      padding: 10px;
+      background: lightcoral;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-size: 11px;
+      color: #fff;
+      max-height: 420px;
+    }
+    
+    .docs-container h2 {
+      font-size: 14px;
+      margin: 10px 0 10px;
+    }
+    
+    .container h3 {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+    
+    .docs-container p {
+      margin: 5px 0;
+    }
+    
+    .docs-container ol,
+    .docs-container ul {
+      margin: 5px 0;
+      padding-left: 20px;
+    }
+    
+    .docs-container li {
+      margin-bottom: 1px;
+    }
+    
+    .docs-container strong {
+      font-weight: bold;
+    }
+    
+  }
+  
+ 
+  
+  @media screen and (min-width: 280px) and (max-width: 653px) {
+    /* .docs-main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assests/valentine2.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    } */
+  
+    .docs-container-grid{
+      display: grid;
+      grid-template-columns: 270px;
+      gap: 5px;
+    }
+
+    .docs-container {
+      max-width: 653px;
+      margin: 5px auto;
+      padding: 5px;
+      background: lightcoral;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-size: 11px;
+      color: #fff;
+      max-height: 280px;
+    }
+    
+    .docs-container h2 {
+      font-size: 14px;
+      margin: 1px 0 1px;
+    }
+    
+    .container h3 {
+      font-size: 18px;
+      margin: 1px 0;
+    }
+    
+    .docs-container p {
+      margin: 1px 0;
+    }
+    
+    .docs-container ol,
+    .docs-container ul {
+      margin: 3px 0;
+      padding-left: 20px;
+    }
+    
+    .docs-container li {
+      margin-bottom: 1px;
+    }
+    
+    .docs-container strong {
+      font-weight: bold;
+    }
+  }
+  
+  @media screen and (min-width: 600px) and (max-width: 1024px) {
+  
+  }
+  

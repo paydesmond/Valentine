@@ -1,18 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Front.css';
-import { useState } from 'react'; // Removed unused imports
+import { useState } from 'react';
 import { notifyNo, valentineToast } from '../../components/Success/Success';
 import { fetchAdmirerData } from '../../Hooks/Hooks';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../../Features/idSlice';
 
 const Front = () => {
   const [accessed, setAccessed] = useState(false);
-  const [id, setId] = useState({
-    id: ''
-  });
+  const [id, setId] = useState({ id: '' }); // Initialize id with an empty string
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userdata = useSelector(state => state.id.userdata);
 
   const handleClick = () => setAccessed(prevState => !prevState);
 
@@ -24,37 +23,39 @@ const Front = () => {
   };
 
   const handleNavigate = async () => {
-
     setTimeout(async () => {
-      if (!isNaN(id.id) || !id.id==='') {
-        const data = await fetchAdmirerData(id);
-        setId({
-          ...id,
-          id:''
-        })
-        dispatch(setUserData(data))
-        if (data) {
-          navigate('/asking');
+      if (!isNaN(id.id) && id.id !== '') {
+        try {
+          const data = await fetchAdmirerData(id);
+          setId({ ...id, id: '' });
+          dispatch(setUserData(data));
+          
+          if (userdata && userdata?.id === id?.id) {
+            navigate('/asking');
+          } else {
+            notifyNo('Please provide a valid ID');
+          }
+        } catch (error) {
+          notifyNo('Please provide a valid ID');
         }
       } else {
         notifyNo('Please provide a valid ID');
-        setId({
-          ...id,
-          id:''
-        })
       }
     },);
   };
 
   return (
     <div className='front-container'>
-      <button onClick={()=>navigate('/initial-docs')} className='front-docs'>FOR INFO ON USAGE CLICK HERE</button>
+      <button onClick={() => navigate('/initial-docs')} className='front-docs'>FOR INFO ON USAGE CLICK HERE</button>
       <div className='front-item'>
-        <Link className='link-h' onClick={handleClick} >
-          CHECK OUT YOUR MESSAGE VIA ID
+        <div className='link-h'>
+        <Link  onClick={handleClick} >
+          <div className='size'>CHECK OUT YOUR MESSAGE VIA ID</div>
         </Link>
+        </div>
 
-        { accessed && <div className='user-id'>
+        {accessed && (
+          <div className='user-id'>
             <input
               name='id'
               value={id.id}
@@ -63,11 +64,13 @@ const Front = () => {
             />
             <button onClick={handleNavigate} className='go'>GO</button>
           </div>
-        }
+        )}
 
-        <Link className='link-h' to='/askcrushout'>
-          ASK HIM / HER OUT
+        <div className='link-h'>
+        <Link  to='/askcrushout'>
+          <div className='size'>ASK HIM / HER OUT</div>
         </Link>
+        </div>
       </div>
       {valentineToast}
     </div>

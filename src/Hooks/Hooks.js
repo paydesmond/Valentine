@@ -14,24 +14,9 @@ export const sendData= async (userdetails)=>{
 
 }
 
-// https://askcrushout.onrender.com/api/person/1213/
-// export const fetchAdmirerData1 = async(answer)=>{
-
-//   try {
-//     const {id} = answer
-//     const {data} = await axios.get(`https://askcrushout.onrender.com/api/person/${id}`)
-//     return data
-
-//   } catch (error) {
-//     notifyNo('Something went please try again')
-//   }
-
-// }
-
-// https://askcrushout.onrender.com/api/person/
 export const fetchAdmirerData = async({id})=>{
   try {
-    // const {id} = id
+
     const {data} = await axios.get(`https://askcrushout.onrender.com/api/person/${id}`)
 
     return data

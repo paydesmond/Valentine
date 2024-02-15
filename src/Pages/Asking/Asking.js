@@ -6,29 +6,37 @@ import {useParams} from 'react-router-dom';
 import {fetchAdmirerData,postResult} from '../../Hooks/Hooks'
 import {notifyNo,notifyYes,toastBucket} from '../../components/Success/Success'
 import { useDispatch,useSelector } from 'react-redux';
+import {clearUserData} from '../../Features/idSlice'
+import {CSSProperties } from "react";
+import FadeLoader from "react-spinners/ClipLoader";
 
 
 function Asking() {
+  const [loading, setLoading] = useState(true);
   const [answer,setAnswer] = useState({
     id: '',
     answer:''
    });
-
+  const id = useParams()
+  
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const navigate = useNavigate()
   const [userDetails,setUserDetails] = useState(null)
 
- const userData = useSelector(state=>state.id.userdata)
-    
-
 
   useEffect(()=>{
     const fetchData = async()=>{
-      const response = await fetchAdmirerData(userData)
-      setUserDetails(response)
+      const response = await fetchAdmirerData(id)
+      if(response){
+        setLoading(false)
+        setUserDetails(response)
+      } else{
+        navigate('/')
+      }
     }
     fetchData()
-  },[userData])
+    
+  },[id])
 
   const handleDisableButton = () => {
     setButtonDisabled(true);
@@ -77,9 +85,18 @@ const image ='https://th.bing.com/th/id/R.47cecf6ce91d73af7900067efeaacb63?rik=%
   return (
     <div className='asking-container'>
       
-       {/* <img className='image' src={userDetails ? userDetails.image : image} alt='image'/>   */}
 
-        <div className='ask-name'>{userDetails ? 
+{ !userDetails ?(
+       <FadeLoader 
+       color='#fff'
+       loading={loading}
+       size={150}
+       aria-label="Loading Spinner"
+       data-testid="loader"
+     />
+     )
+     : (<>
+      <div className='ask-name'>{userDetails ? 
         userDetails.first_name : alternativeName.name}</div>
 
       <div className='random-love-quote'>
@@ -116,7 +133,8 @@ const image ='https://th.bing.com/th/id/R.47cecf6ce91d73af7900067efeaacb63?rik=%
         </div>
         {toastBucket}
       </div>
-
+      </>)
+}
 
     </div>
   )

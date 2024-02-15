@@ -7,13 +7,16 @@ const Documentation = () => {
     <>
    <div className='main-container'>
    <div className="container">
-      <h1>Valentine App Documentation</h1>
+   <div>
+    
+   {/* <h1>Valentine App Documentation</h1> */}
 
       <h2>Overview</h2>
       <p>
-        The Valentine app is a simple web application designed to help users express their affection by asking someone out for Valentine's Day. Users can provide their details, including their name, email, admirer's name, and a heartfelt message. Additionally, they can upload an image to personalize their invitation.
-      </p>
+       The Valentine app is a simple web application designed to help users express their affection by asking someone out for Valentine's Day. Users can provide their details, including their name, email, admirer's name, and a heartfelt message. Additionally, they can upload an image to personalize their invitation.
+       </p>
 
+   </div>
       <h2>Usage</h2>
       <ol>
         <li><strong>Enter Personal Details:</strong>

@@ -6,32 +6,48 @@ const FrontDocs = () => {
     const navigate = useNavigate()
   return (
     <div className='docs-main-container'>
+      <div className='docs-container-grid'>
+
       <div className='docs-container'>
-        <h2>Overview</h2>
-        <p>The front page of the application allows users to access their messages and ask someone out. It presents two main sections: "CHECK OUT YOUR MESSAGE VIA ID" and "ASK HIM / HER OUT".</p>
+         <h2>Overview</h2>
+         <p>
+          The Valentine app is a simple web application designed to help users express their affection by asking someone out for Valentine's Day. Users can provide their details, including their name, email, admirer's name, and a heartfelt message. Additionally, they can upload an image to personalize their invitation.
+          </p>      
+      </div>
 
+      <div className='docs-container'>
         <h2>How to Use</h2>
-        <h3>Checking Your Message</h3>
+        <h3>Enter Personal Details:</h3>
         <ol>
-          <li>Click on "CHECK OUT YOUR MESSAGE VIA ID" link.</li>
-          <li>If prompted, enter your ID in the provided input field.</li>
-          <li>Click the "GO" button to proceed.</li>
-          <li>You will be redirected to view your message.</li>
+            <li>Provide your first name in the "provide first name" input field.</li>
+            <li>Enter your email address in the "provide email" input field.</li>
+            <li>Provide the name of your admirer in the "provide admirer's name" input field.</li>
+            <li>Write a heartfelt message in the textarea provided.</li>
         </ol>
 
-        <h3>Asking Someone Out</h3>
-        <ol>
-          <li>Click on the "ASK HIM / HER OUT" link.</li>
-          <li>You will be redirected to a page where you can ask your crush out.</li>
-        </ol>
 
-        <h2>Notes</h2>
+        <h3>Submit:</h3>
+        <ol>
+        <li>Click the "SUBMIT" button to submit your details and generate the invitation link.</li>
+        </ol>
+      </div>
+    
+     {/* <div className='docs-container'> 
+     <h2>Copy Link:</h2>
         <ul>
-          <li>Ensure you have your ID ready to check your message.</li>
-          <li>Make sure to provide a valid ID when prompted.</li>
-          <li>If you encounter any issues, a notification will be displayed.</li>
-          <li><button className='docs-btn' onClick={()=>navigate('/')}>Click here to begin</button></li>
+        <li>Once the link is generated, it will be displayed on the screen.</li>
+            <li>Click the "Copy" button next to the link to copy it to your clipboard.</li>
+            <li>You will receive a notification confirming that the link has been copied successfully.</li>
         </ul>
+     </div> */}
+
+     <div className='docs-container'> 
+     <h2>Share:</h2>
+        <ul>
+        <li>Share the generated link with your admirer via email, messaging apps, or any other preferred method.</li>
+            <li><button className='docs-btn' onClick={()=>navigate('/')}>Click here to begin</button></li>
+        </ul>
+     </div>
       </div>
     </div>
   );

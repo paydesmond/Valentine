@@ -11,10 +11,13 @@ export  const idSlice = createSlice({
     reducers:{
         setUserData:(state,action)=>{
             state.userdata = action.payload
+        },
+        clearUserData:(state)=>{
+           state.userdata = null
         }
     }
 })
 
-export const { setUserData}  = idSlice.actions
+export const { setUserData,clearUserData}  = idSlice.actions
 
 export default idSlice.reducer

@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import {notifyHappyValentine,valentineToast,notifyNo,toastBucket, notifyYes} from '../../components/Success/Success'
 import Clipboard from '../../components/Clipboard/Clipboard';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -34,8 +34,7 @@ export default function Valentine() {
       } else{
         
         const {data:{link,id}} = await axios.post(`https://askcrushout.onrender.com/api/send-link/`, userdetails)
-
-        console.log(userdetails)
+          
         if(image || link){
           setUserData({
             ...userData,
@@ -92,9 +91,10 @@ export default function Valentine() {
     <div className='valentine-container'>
       <button onClick={()=>navigate('/documentation')} className='docs-v'>FOR INFO ON USAGE CLICK HERE</button>
 
-      <h1 className='ask-her-out'>ASK HIM/HER OUT</h1>
+      {/* <h1 className='ask-her-out'>ASK HIM/HER OUT</h1> */}
 
       <div className='valentine-ask-out'>
+
         <input
           placeholder='provide first name'
           className='name'
