@@ -3,19 +3,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import {notifyHappyValentine,valentineToast,notifyNo,toastBucket, notifyYes} from '../../components/Success/Success'
 import Clipboard from '../../components/Clipboard/Clipboard';
-import { Link, useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 
-
-// BASEURL =`https://askcrushout.onrender.com/api/person/1213`
 
 export default function Valentine() {
 
   const navigate = useNavigate();
+  const [disableButton,setDisableButton] = useState(false)
   const [userData,setUserData]=useState({
     admirerLink:''
   })
   
+
+
   const [userdetails, setUserDetails] = useState({
     first_name: '',
     email: '',
@@ -24,10 +24,15 @@ export default function Valentine() {
     speak_from_heart:''
   });
 
+  
   const handleSubmit = async (userdetails) => {
     try{
+      setDisableButton(previos=>!previos)
+      console.log(disableButton)
+
       const {first_name,email,admirer,image,speak_from_heart} = userdetails
 
+       console.log(userdetails)
       if(!first_name || !email || !admirer || !speak_from_heart){
         notifyNo('Please provide all details')
       } else{
@@ -50,6 +55,9 @@ export default function Valentine() {
             // image:'',
             speak_from_heart:''
           })
+
+          // setDisableButton(previos=>!previos)
+
         }
       }
          setUserDetails({
@@ -60,6 +68,9 @@ export default function Valentine() {
           //  image:'',
            speak_from_heart:''
          })
+
+        //  setDisableButton(previos=>!previos)
+
     }
     catch (error){
       notifyNo('Something went please try again')
@@ -71,6 +82,9 @@ export default function Valentine() {
         // image:'',
         speak_from_heart:''
       })
+      
+      // setDisableButton(previos=>!previos)
+      console.log(disableButton)
     }
   };
 
@@ -80,15 +94,11 @@ export default function Valentine() {
       [e.target.name]: e.target.value 
     });
   };
-  const userdata = {
-    admirerLink: 'https://google.com',
-  };
+
  
   return (
     <div className='valentine-container'>
       <button onClick={()=>navigate('/documentation')} className='docs-v'>FOR INFO ON USAGE CLICK HERE</button>
-
-      {/* <h1 className='ask-her-out'>ASK HIM/HER OUT</h1> */}
 
       <div className='valentine-ask-out'>
 
@@ -134,25 +144,22 @@ export default function Valentine() {
          onChange={handleChange}
          /> */}
 
-        <button className='btn' onClick={() => {
-           handleSubmit(userdetails)
-        }
-          }>
+     {  (<button className='btn' onClick={() => { handleSubmit(userdetails)}}>
           SUBMIT
-        </button>
+        </button>) 
+     }
 
       </div>
   <div className='toast'>
     {valentineToast}
     {toastBucket}
   </div>
-
+  
    <div>
    {
       userData.admirerLink
        ?( 
       <>
-            
               <button onClick={()=>{
                 notifyYes('Copied Successfully')
                  

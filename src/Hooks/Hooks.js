@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { notifyNo } from '../components/Success/Success';
-import { setId } from '../Features/idSlice';
 
 const BASE_URL='https://askcrushout.onrender.com/api/send-link/';
 
