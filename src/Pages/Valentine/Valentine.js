@@ -28,11 +28,9 @@ export default function Valentine() {
   const handleSubmit = async (userdetails) => {
     try{
       setDisableButton(previos=>!previos)
-      console.log(disableButton)
 
       const {first_name,email,admirer,image,speak_from_heart} = userdetails
 
-       console.log(userdetails)
       if(!first_name || !email || !admirer || !speak_from_heart){
         notifyNo('Please provide all details')
       } else{
@@ -56,7 +54,6 @@ export default function Valentine() {
             speak_from_heart:''
           })
 
-          // setDisableButton(previos=>!previos)
 
         }
       }
@@ -69,7 +66,6 @@ export default function Valentine() {
            speak_from_heart:''
          })
 
-        //  setDisableButton(previos=>!previos)
 
     }
     catch (error){
@@ -83,7 +79,6 @@ export default function Valentine() {
         speak_from_heart:''
       })
       
-      // setDisableButton(previos=>!previos)
       console.log(disableButton)
     }
   };
